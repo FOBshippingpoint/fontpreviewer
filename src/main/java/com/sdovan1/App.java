@@ -171,6 +171,9 @@ public class App extends JFrame {
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
             setBorder(new EmptyBorder(10, 10, 10, 10));
             add(nameLabel);
+
+            // Monkey patch for increasing default preview size.
+            previewLabel.setFont(previewLabel.getFont().deriveFont(24f));
             add(previewLabel);
         }
 
@@ -178,8 +181,6 @@ public class App extends JFrame {
         public Component getListCellRendererComponent(JList<? extends FontItem> list, FontItem value, int index,
                                                       boolean isSelected, boolean cellHasFocus) {
             nameLabel.setText(value.familyName);
-            nameLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 14));
-
             previewLabel.setText(previewText.getText());
 
             if (!loadedFonts.contains(value)) {
