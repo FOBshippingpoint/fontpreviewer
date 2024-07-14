@@ -1,0 +1,3 @@
+= Font Previewer
+
+A simple Java Swing desktop application for font previewing written in Swing.
